@@ -1,0 +1,7 @@
+numpy
+Flask
+grpcio
+grpcio-tools
+protobuf
+opencv-python-headless
+pillow

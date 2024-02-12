@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Input Example</title>
+  <script>
+    function handleFileInputChange() {
+      // Reference to the form
+      var form = document.getElementById('myForm');
+      
+      // Submit the form
+      form.submit();
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Form tag with input and onchange event -->
+  <form id="myForm" action="/upload" method="post">
+    <input type="file" id="file_input" style="display: none;" onchange="handleFileInputChange()" />
+  </form>
+
+  <!-- Link to trigger file input -->
+  <a href="#" onclick="document.getElementById('file_input').click()">Click me to select a file</a>
+
+</body>
+</html>

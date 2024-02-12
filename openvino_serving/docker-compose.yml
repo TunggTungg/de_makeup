@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web:
+    container_name: de_makeup_api
+    build: .
+    restart: always
+    volumes:
+      - .:/code
+    command: bash -c "python3 app.py"
+    ports:
+      - "5000:5000"
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.4
+  ovmsclient-serving:
+    image: openvino/model_server
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./models:/models
+    command: --model_name demakeup --model_path /models/demakeup --port 9000 
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.5
+networks:
+  mynet:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1

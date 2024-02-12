@@ -1,0 +1,6 @@
+numpy
+Flask
+opencv-contrib-python-headless
+pillow
+openvino-dev
+ovmsclient
