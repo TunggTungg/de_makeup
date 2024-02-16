@@ -1,12 +1,9 @@
-FROM ubuntu:22.04
+FROM python:3.10.13-slim as base
 
-RUN apt-get update
-RUN apt-get install -y python3-pip python3-dev libglib2.0-0 libsm6 libxrender1 libxext6 \
-    && cd /usr/local/bin \
-    && ln -s /usr/bin/python3 python \
-    && pip3 install --upgrade pip
+RUN apt-get update && apt-get clean
 
 RUN mkdir /code
 WORKDIR /code
 COPY requirements.txt /code/requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY . /code

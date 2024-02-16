@@ -1,6 +1,8 @@
 numpy
-Flask
+fastapi[all]
+uvicorn[standard]
 opencv-contrib-python-headless
 pillow
 openvino-dev
 ovmsclient
+jinja2
