@@ -1,11 +1,13 @@
-import cv2
-import numpy as np
-import grpc
 from protos.tensorflow_serving.apis import predict_pb2
 from protos.tensorflow_serving.apis import prediction_service_pb2_grpc 
 from protos.tensorflow.core.framework import tensor_pb2  
 from protos.tensorflow.core.framework import tensor_shape_pb2  
 from protos.tensorflow.core.framework import types_pb2  
+import cv2
+import numpy as np
+import grpc
+import base64
+
 
 def convert_image(encoded_img):
 

@@ -1,5 +1,6 @@
 numpy
-Flask
+fastapi[all]
+uvicorn[standard]
 grpcio
 grpcio-tools
 protobuf

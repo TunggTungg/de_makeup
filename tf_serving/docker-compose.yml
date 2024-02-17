@@ -6,9 +6,9 @@ services:
     restart: always
     volumes:
       - .:/code
-    command: bash -c "python3 app.py"
+    command: ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
     ports:
-      - "5000:5000"
+      - "8000:8000"
     networks:
       mynet:
         ipv4_address: 10.5.0.4
