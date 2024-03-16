@@ -8,7 +8,27 @@ import numpy as np
 import grpc
 import base64
 
+def unsharp_masking(image, sigma=1.0, strength=1.5):
+    # Apply Gaussian blur to the normalized image
+    blurred = cv2.GaussianBlur(image, (0, 0), sigma)
 
+    # Calculate the difference between the original and blurred images
+    mask = image - blurred
+
+    # Scale the mask by the strength parameter
+    sharpened = image + strength * mask
+
+    # Clip the values to ensure they are within the valid range
+    sharpened = np.clip(sharpened, 0, 1)
+
+    return sharpened
+
+
+def postprecess(img):
+    img = cv2.resize(img, (520,520)) 
+    sharpened = unsharp_masking(img)
+    return sharpened
+    
 def convert_image(encoded_img):
 
     if isinstance(encoded_img, str):
@@ -53,8 +73,9 @@ def grpc_infer(img):
     
     try:
         result = stub.Predict(request, 10.0)
-        result = np.clip(result.outputs["output_image"].float_val, 0.0, 1.0)
+        result = np.clip(result.outputs["output_image"].float_val,0,1)
         result = result.reshape((224,224, 3))
+        result = postprecess(result)
         return result
     except Exception as e:
         print(e)

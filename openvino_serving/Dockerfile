@@ -1,6 +1,8 @@
 FROM python:3.10.13-slim as base
 
-RUN apt-get update && apt-get clean
+RUN apt-get update && \ 
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /code
 WORKDIR /code

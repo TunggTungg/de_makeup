@@ -27,7 +27,6 @@ async def homepage(request: Request):
 
 @app.post("/generate")
 async def generate(request: Request, file: UploadFile = File(...)):
-	   
 	# Check if the filename has a valid image extension
 	if not is_valid_image_extension(file.filename):
 		raise HTTPException(status_code=400, detail="Only image files are allowed")
