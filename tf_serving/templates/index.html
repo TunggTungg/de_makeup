@@ -10,43 +10,40 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
-    <!-- Link to your custom CSS file -->
-    <!-- <link rel="stylesheet" href="templates/style.css"> -->
     <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-
 <body>
-  <div class="jumbotron text-center">
-
-    <div class="container">
-      
+  <div class="w3-container">
+    <div id="top">
       <h1>de-Make up System</h1>
       <p style="color:#888;">Based on CNN, Unet Architecture and Deep Learning</p>
-      
     </div>
-  </div>
+  
+    <div class="wrapper">
+      <div id="main">
+        <a class="btn btnanimate" onclick="Click()">Upload and Start Generating</a>
+        <form action="{{ url_for('generate')}}" method="POST" enctype="multipart/form-data" id='form'>
+                <input type="file" name="file" id="file_input"  style="display: None;" accept="image/*" onchange="handleFileInputChange()">
+        </form>
+        <div class="outer">
+          <figure>
+            <img-comparison-slider class="slider-style background" hover="hover">
+                <img slot="first" src="{{input_img}}"/>
+                <img slot="second" src="{{output_img}}"/>
+            </img-comparison-slider>
+            <figcaption>User's Uploaded Image</figcaption>
+          </figure>
+      </div>
 
-  
-  <div class="container">
-    <a class="btn btnanimate" onclick="Click()">Upload and Start Generating</a>
-    <form action="{{ url_for('generate')}}" method="POST" enctype="multipart/form-data" id='form'>
-            <input type="file" name="file" id="file_input"  style="display: None;" accept="image/*" onchange="handleFileInputChange()">
-    </form>
-  </div>
-  
-  <div class="image-container container">
-    <img-comparison-slider class="coloured-slider" hover="hover">
-          <img slot="first" src="{{input_img}}" width="100%"/>
-          <img slot="second" src="{{output_img}}" width="100%"/>
-  </img-comparison-slider>
-        
+      </div>
+    </div>
   </div>
   
   <footer>
-    <hr  style="margin-top:50px;" />
-    <p class="text-center">Created with <span class="icon"><i class="fa fa-heart fa-lg"></i></span> by <a href="http://designify.me/" target="_blank"> Designify.me</a></p>
+    <hr/>
+    <p>Created with <span class="icon"><i class="fa fa-heart fa-lg" style="color:red;"></i></span> by <a href="http://designify.me/" target="_blank"> Designify.me</a></p>
   </footer>
   
 </body>

@@ -2,54 +2,80 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
 
-
 body {
   font-family: 'Comfortaa', cursive;
-  background: #353535;
-  color: #FFF;
-}
-.jumbotron h1 {
-  color: #353535;
-}
-.coloured-slider {
-  --divider-width: 1;
-  --divider-color: rgba(0, 0, 0, 0.5);
-  --default-handle-color: rgba(250, 3, 3, 0.5);
-  --default-handle-opacity: 0;
-
-  --default-handle-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-  --divider-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  background:#404040;
+  margin: 0;
+  color:white;
 }
 
-.image-container {
-  display: flex;
-  justify-content: space-between;
+h1, p {
+  margin: 0;
 }
 
-.image-container img {
-  flex: 50%;
-  padding: 20px;
+#top {
+  background-color:#ffe6e6;
+  color:black;
+  text-align: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-size: medium;
+}
+#top h1{
+  font-size: 80px;
+  margin-bottom:5px;
+}
+#top p{
+  font-size: 25px;
 }
 
 footer {
-  margin-bottom: 0 !important;
-  margin-top: 80px;
+  margin-bottom: 0px !important;
+  margin-top: 5px;
+  font-style: italic;
 }
-footer p {
+footer hr{
   margin: 0;
-  padding: 0;
+}
+footer p{
+  margin: 5px 0px 5px 0px;
+  text-align: center;
+}
+footer a{
+  color:#4da6ff;
+} 
+
+.outer {
+  display: block;
+  text-align: center;
+}
+.outer img{
+  width: 100%;
+}
+.background{
+  border: 1px solid #e6ffe6;
+  border-radius: 25px 0 25px 0;
+  box-shadow: 0 0 50px red;
+}
+figure figcaption{
+  margin-top: 5px;
+  text-align: center;
+  font-style: oblique;
+}
+
+.slider-style{
+  --divider-width: 0px;
+  --divider-color: rgba(0, 0, 0, 0);
+  --default-handle-color: rgba(0, 0, 0, 0);
+  transition: box-shadow 200ms ease-in-out;
+}
+.slider-style:hover {
+  outline: none;
+  box-shadow: 0px 0px 50px #319afb;
 }
 span.icon {
   margin: 0 5px;
   color: #D64541;
-}
-h2 {
-  color: #BDC3C7;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.mrng-60-top {
-  margin-top: 60px;
 }
 
 .btn{
@@ -61,11 +87,13 @@ h2 {
   text-decoration: none;
   margin: 0;
   border: 2px solid #ff7675;
-  padding: 14px 60px;
+  text-align:center;
+  padding: 10px;
   text-transform: uppercase;
   overflow: hidden;
   transition: 1s all ease;
 }
+
 .btn::before{
   background: #ff7675;
   content: "";
@@ -85,5 +113,6 @@ h2 {
 .btnanimate:hover::before{
   height: 380%;
 }
+
 
 
