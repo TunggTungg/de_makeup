@@ -25,7 +25,7 @@ def unsharp_masking(image, sigma=1.0, strength=1.5):
 
 
 def postprecess(img):
-    img = cv2.resize(img, (520,520)) 
+    img = cv2.resize(img, (448,448)) 
     sharpened = unsharp_masking(img)
     return sharpened
     
